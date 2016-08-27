@@ -77,8 +77,9 @@ class CetModel extends Model {
 	*/
 	public function fetchGrade($num, $name){
 		$snoopy = new \Addon\Common\Snoopy();
-		$snoopy->referer = 'http://cet.99sushe.com/';
-		$url = 'http://cet.99sushe.com/getscore' . $num;
+		$snoopy->curl_path = '/usr/bin/curl';
+		$snoopy->referer = 'https://cet.99sushe.com/';
+		$url = 'https://cet.99sushe.com/getscore' . $num;
 		$form['id']=$num;
 		$form['name']=iconv("UTF-8","gbk//TRANSLIT",$name);
 		$snoopy->submit($url,$form);
